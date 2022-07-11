@@ -1,0 +1,25 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev:cjs": "node src/cjs/index.cjs",
+    "dev:esm": "node src/esm/index.mjs",
+    "dev:ts": "ts-node src/ts/index.ts",
+    "build": "tsc src/ts/index.ts --outDir dist --target es6"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "md5": "^2.3.0",
+    "vue-router": "^4.1.1"
+  },
+  "devDependencies": {
+    "@types/md5": "^2.3.2",
+    "eslint": "^8.19.0",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.7.4"
+  }
+}

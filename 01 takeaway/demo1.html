@@ -1,0 +1,86 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <!-- Source -->
+        <script src="vue.js"></script>
+        <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+        </script>
+    </head>
+
+    <body>
+        <div id="indexPage">
+            <p v-for="post in posts">{{ post }}</p>
+            <button @click="getValue">获取后端数据</button>
+        </div>
+        <div id="app">
+            <p v-for="post in posts">{{ post }}</p>
+            <button @click="getValue">获取后端数据</button>
+        </div>
+        <script>
+            // vue2 的声明方式
+        // var vm = new Vue({
+        //     el: document.getElementById("indexPage"),
+        //     mounted() {
+        //         this.getValue();
+        //     },
+        //     data:{
+        //         posts:[]
+        //     },
+        //     methods:{
+        //         getValue:function(){
+        //             var that = this;
+        //             that.posts =  ["测试返回数据","测试1"];
+                  
+        //         }
+        //     }
+        // });
+
+        // vue3 的声明方式
+        Vue.createApp({
+            el: document.getElementById("indexPage"),
+            mounted() {
+                this.getValue();
+            },
+            // vue3 的声明方式
+            // setup(){
+            //     var posts = [];
+            //     return {posts}
+            // },
+            data() {
+            return {
+            newTodoText: '',
+            posts: [
+                {
+                id: 1,
+                title: 'Do the dishes'
+                },
+                {
+                id: 2,
+                title: 'Take out the trash'
+                },
+                {
+                id: 3,
+                title: 'Mow the lawn'
+                }
+            ],
+            nextTodoId: 4
+            }
+        },
+            methods:{
+                getValue:function(){
+                    var that = this;
+                    // that.posts =  ["测试返回数据","测试1"];
+                    console.log("posts",that.posts)
+                }
+            },
+        }).mount("#app");
+        </script>
+    </body>
+
+    </html>
